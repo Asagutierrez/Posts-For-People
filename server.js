@@ -1,5 +1,6 @@
 // import npm packages
 import 'dotenv/config.js'
+import './config/database.js'
 import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
