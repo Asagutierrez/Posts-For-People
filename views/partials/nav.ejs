@@ -1,9 +1,15 @@
-  <% if (!user) { %>
+ 	<% if (!user) { %>
     <script defer src="https://accounts.google.com/gsi/client"></script>
   <% } %>
 </head>
 <body>
   <nav>
+    <a href="/posts" class="left">
+    <button type="submit">ALL POSTS</button>
+    </a>
+    <a href="/posts/new" class="middle">
+    <button type="submit">ADD POST</button>
+    </a>
     <% if (user) { %>
       <a href="/auth/logout" class="right">
         <button type="submit">Logout</button>
@@ -14,10 +20,9 @@
         data-client_id="<%= googleClientID %>"
         data-login_uri="/auth/google"
         data-auto_prompt="false"
-        data-prompt_parent_id="g_id_onload"
       ></div>
       <div 
-        class="g_id_signin right"
+        class="g_id_signin"
         data-type="standard"
         data-size="large"
         data-theme="outline"
