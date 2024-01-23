@@ -14,7 +14,11 @@ function index(req, res) {
   })
 }
 
-
+function newPost(req, res) {
+  res.render('posts/new', {
+    title: 'Add Post'
+  })
+}
 
 export {
   index,
