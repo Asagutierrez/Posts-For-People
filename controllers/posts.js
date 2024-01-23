@@ -1,5 +1,7 @@
 import { Post } from '../models/post.js'
 
+
+
 function index(req, res) {
   Post.find({})
   .then(posts => {
@@ -20,9 +22,20 @@ function newPost(req, res) {
   })
 }
 
-
+function create(req, res) {
+  req.body.owner = req.user.profile_id
+  Post.create(req.body)
+  .then(post => {
+    res.redirect('/posts')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/posts')
+  })
+}
 
 export {
   index,
-  newPost as new
+  newPost as new,
+  create
 }
