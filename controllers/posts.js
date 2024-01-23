@@ -20,6 +20,8 @@ function newPost(req, res) {
   })
 }
 
+
+
 export {
   index,
   newPost as new

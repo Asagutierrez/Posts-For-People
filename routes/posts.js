@@ -4,8 +4,10 @@ const router = Router()
 
 // GET localhost:3000/posts
 router.get('/', postsCtrl.index)
-// Post localhost:3000/posts
+// GET localhost:3000/posts
 router.get('/new', postsCtrl.new)
+// POST localhost:3000/posts
+router.get('/new', postsCtrl.create)
 
 export {
   router
