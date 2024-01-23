@@ -15,6 +15,8 @@ function index(req, res) {
 }
 
 
+
 export {
-  index
+  index,
+  newPost as new
 }
