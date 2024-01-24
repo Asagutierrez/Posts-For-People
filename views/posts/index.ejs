@@ -6,7 +6,7 @@
 <ul>
   <% posts.forEach(post => { %>
     <li>
-      <h2><%= post.name %></h2>
+      <a href="/posts/<%= post._id %>"><%= post.name %></a> 
       <p><%= post.content %></p>
     </li>
   <% }); %>

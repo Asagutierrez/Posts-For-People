@@ -7,6 +7,8 @@ const router = Router()
 router.get('/', postsCtrl.index)
 // GET localhost:3000/posts
 router.get('/new', isLoggedIn, postsCtrl.new)
+// GET localhost:3000/posts
+router.get('/:postId', postsCtrl.show)
 // POST localhost:3000/posts
 router.post('/', isLoggedIn, postsCtrl.create)
 

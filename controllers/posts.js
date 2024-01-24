@@ -1,6 +1,18 @@
 import { Post } from '../models/post.js'
 
 
+function create(req, res) {
+  console.log('create')
+  req.body.owner = req.user.profile._id
+  Post.create(req.body)
+  .then(post => {
+    res.redirect('/posts')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/posts')
+  })
+}
 
 function index(req, res) {
   Post.find({})
@@ -22,20 +34,11 @@ function newPost(req, res) {
   })
 }
 
-function create(req, res) {
-  req.body.owner = req.user.profile_id
-  Post.create(req.body)
-  .then(post => {
-    res.redirect('/posts')
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/posts')
-  })
-}
+
 
 export {
   index,
   newPost as new,
-  create
+  create,
+  show
 }
