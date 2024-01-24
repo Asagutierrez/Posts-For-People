@@ -6,7 +6,7 @@
   <h1><%= post.name %></h1>
 </section>
 <% if (post.owner.equals(user?.profile._id)) { %>
-  <a href="/post/<%= post._id %>/edit">
+  <a href="/posts/<%= post._id %>/edit">
     <button class="btn">Edit this Post</button>
   </a>
 <% } %>
