@@ -36,18 +36,18 @@ function newPost(req, res) {
 
 
 function show(req,res) {
-  Post.findById(req.params.tacoId)
+  Post.findById(req.params.postId)
   .populate("owner")
   .then(post => {
     res.render('posts/show', {
       post,
-      title: 'Posts'
-    })
-    .catch(err => {
-      console.log(err)
-      res.redirect("/")
+      title: 'posts'
     })
   })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/posts")
+})
 }
 
 export {
