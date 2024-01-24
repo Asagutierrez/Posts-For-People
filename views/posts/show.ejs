@@ -5,5 +5,9 @@
 	<p>Post made by <%= post.owner.name %>...</p>
   <h1><%= post.name %></h1>
 </section>
-
+<% if (post.owner.equals(user?.profile._id)) { %>
+  <a href="/post/<%= post._id %>/edit">
+    <button class="btn">Edit this Post</button>
+  </a>
+<% } %>
 <%- include('../partials/footer') %>
