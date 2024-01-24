@@ -13,6 +13,8 @@ router.get('/:postId', postsCtrl.show)
 router.get('/:postId/edit', isLoggedIn, postsCtrl.edit)
 // POST localhost:3000/posts
 router.post('/', isLoggedIn, postsCtrl.create)
+// PUT localhost:3000/posts/:postId/
+router.put('/:postId', isLoggedIn, postsCtrl.update)
 
 export {
   router
