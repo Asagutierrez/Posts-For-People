@@ -37,7 +37,10 @@ function newPost(req, res) {
 
 function show(req,res) {
   Post.findById(req.params.postId)
-  .populate("owner")
+  .populate([
+    {path: "owner"},
+    {path: "comments.author"}
+  ])
   .then(post => {
     res.render('posts/show', {
       post,
@@ -99,12 +102,25 @@ function deletePost(req, res) {
     res.redirect(`/posts`)
   })
 }
-
-
+ // if req.user.profile._id doesnt exist in dislikes array
+      // push the current logged in user's id to the dislikes array
+    // if post.owner exists in dislikes array 
+      // redirect back to the post
 function dislikes(req, res) {
   Post.findById(req.params.postId)
   .then(post => {
-    console.log("post", post)
+    if (!Array.isArray(dislikes)) {
+      dislikes = [];
+    } 
+    if (!dislikes.includes(req.user.profile._id)) {
+      dislikes.push(req.user.profile._id)
+    }else if (dislikes.includes(post.owner)){
+      res.redirect(`/posts/${post._id}`)
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/posts`)
   })
 }
 
