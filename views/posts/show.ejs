@@ -19,4 +19,13 @@
 <form action="/posts/dislike/<%= post._id %>?_method=PUT" method="POST">
   <button class="btn" type="submit">👎</button>
 </form>
+
+<h2>Comments</h2>
+<% if (user) { %>
+  <h3>Add a comment</h3>
+  <form action="/posts/<%= post._id %>/comments" method="POST">
+    <textarea name="content"></textarea><br>
+    <button type="submit">Add Comment</button>
+  </form>
+<% } %>
 <%- include('../partials/footer') %>

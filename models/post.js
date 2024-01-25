@@ -4,7 +4,9 @@ const Schema = mongoose.Schema
 
 const commentSchema = new Schema({
   content: String,
-  authoer: {type: Schema.Types.ObjectId, ref: 'Profile'}
+  author: {type: Schema.Types.ObjectId, ref: 'Profile'}
+},{
+  timestamps: true
 })
 
 
@@ -13,7 +15,8 @@ const postSchema = new Schema({
   content: String,
   likes: [{type: Schema.Types.ObjectId, ref: 'Profile'}],
   dislikes: [{type: Schema.Types.ObjectId, ref: 'Profile'}],
-  owner: {type: Schema.Types.ObjectId, ref: 'Profile'}
+  owner: {type: Schema.Types.ObjectId, ref: 'Profile'},
+  comments: [commentSchema]
 },{
   timestamps: true
 })
