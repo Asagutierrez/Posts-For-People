@@ -64,10 +64,29 @@ function edit(req, res) {
   })
 }
 
+function update(req, res) {
+  Post.findById(req.params.postId)
+  .then(post => {
+    if (post.owner.equals(req.user.profile._id)) {
+      post.updateOne(req.body)
+      .then(()=> {
+        res.redirect(`/posts/${post._id}`)
+      })
+    } else {
+      throw new Error('Not authorized')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/tacos`)
+  })
+}
+
 export {
   index,
   newPost as new,
   create,
   show,
-  edit
+  edit,
+  update
 }
