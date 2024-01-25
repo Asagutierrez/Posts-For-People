@@ -15,6 +15,8 @@ router.get('/:postId/edit', isLoggedIn, postsCtrl.edit)
 router.post('/', isLoggedIn, postsCtrl.create)
 // PUT localhost:3000/posts/:postId/
 router.put('/:postId', isLoggedIn, postsCtrl.update)
+// DELETE localhost:3000/posts/:postId/
+router.delete('/:postId', isLoggedIn postsCtrl.delete)
 
 export {
   router
