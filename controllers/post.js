@@ -164,7 +164,7 @@ function addComment(req, res) {
 }
 
 function editComment(req, res) {
-  Post.findById(req.params.tacoId)
+  Post.findById(req.params.postId)
   .then(post => {
     const comment = post.comments.id(req.params.commentId)
     if (comment.author.equals(req.user.profile._id)) {

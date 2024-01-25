@@ -9,10 +9,10 @@
   <a href="/posts/<%= post._id %>/edit">
     <button class="btn">Edit this Post</button>
   </a>
+  <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+    <button class="btn" type="submit">Delete Post</button>
+  </form>
 <% } %>
-<form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-  <button class="btn" type="submit">Delete Post</button>
-</form>
 <form action="/posts/<%= post._id %>/like?_method=PUT" method="POST">
   <button class="btn" type="submit">👍</button>
 </form>
@@ -27,7 +27,7 @@
       <%= comment.content %> - <%= comment.author.name %>
       <% if (comment.author.equals(user?.profile._id)) { %>
         <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit">
-          <button class="btn">✏️</button>
+          <button class="btn">Edit Comment</button>
         </a>
       <% } %> 
     </li> 
