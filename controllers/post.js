@@ -125,8 +125,23 @@ function dislikes(req, res) {
 }
 
 function likes(req, res){
-
+  Post.findById(req.params.postId)
+  .then(post => {
+    if (!Array.isArray(likes)) {
+      likes = [];
+    } 
+    if (!likes.includes(req.user.profile._id)) {
+      likes.push(req.user.profile._id)
+    }else if (likes.includes(post.owner)){
+      res.redirect(`/posts/${post._id}`)
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/posts`)
+  })
 }
+
 
 function addComment(req, res) {
   Post.findById(req.params.postId)
@@ -148,6 +163,25 @@ function addComment(req, res) {
   })
 }
 
+function editComment(req, res) {
+  Post.findById(req.params.tacoId)
+  .then(post => {
+    const comment = post.comments.id(req.params.commentId)
+    if (comment.author.equals(req.user.profile._id)) {
+      res.render('posts/editComment', {
+        post, 
+        comment,
+        title: 'Update Comment'
+      })
+    } else {
+      throw new Error(' Not authorized ')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/posts')
+  })
+}
 
 export {
   index,
@@ -159,5 +193,6 @@ export {
   deletePost as delete,
   dislikes,
   likes,
-  addComment
+  addComment,
+  editComment
 }
