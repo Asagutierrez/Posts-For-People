@@ -20,7 +20,8 @@ router.delete('/:postId', isLoggedIn, postsCtrl.delete)
 // PUT localhost:3000/posts/:postId/
 router.put('/dislike/:postId',isLoggedIn, postsCtrl.dislikes)
 // PUT localhost:3000/posts/:postId/
-router.pus('/like/:postId', isLoggedIn, postsCtrl.likes)
+router.put('/like/:postId', isLoggedIn, postsCtrl.likes)
+
 export {
   router
 }

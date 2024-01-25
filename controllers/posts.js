@@ -100,6 +100,21 @@ function deletePost(req, res) {
   })
 }
 
+
+function dislikes(req, res) {
+  Post.findById(req.params.postId)
+  .then(post => {
+    console.log("post", post)
+  })
+}
+
+function likes(req, res){
+
+}
+
+
+
+
 export {
   index,
   newPost as new,
@@ -107,5 +122,7 @@ export {
   show,
   edit,
   update,
-  deletePost as delete
+  deletePost as delete,
+  dislikes,
+  likes
 }

@@ -13,10 +13,10 @@
 <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
   <button class="btn" type="submit">Delete Post</button>
 </form>
-<form action="/posts/<%= post._id %>?_method=likes" method="POST">
+<form action="/posts/like/<%= post._id %>?_method=PUT" method="POST">
   <button class="btn" type="submit">👍</button>
 </form>
-<form action="/posts/<%= post._id %>?_method=dislikes" method="POST">
+<form action="/posts/dislike/<%= post._id %>?_method=PUT" method="POST">
   <button class="btn" type="submit">👎</button>
 </form>
 <%- include('../partials/footer') %>
