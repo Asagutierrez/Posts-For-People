@@ -78,7 +78,25 @@ function update(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect(`/tacos`)
+    res.redirect(`/posts`)
+  })
+}
+
+function deletePost(req, res) {
+  Post.findById(req.params.postId)
+  .then(post => {
+    if (post.owner.equals(req.user.profile._id)) {
+      post.deleteOne()
+      .then(() => {
+        res.redirect('/posts')
+      })
+    }else {
+      throw new Error ('Not authorized')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/posts`)
   })
 }
 
@@ -88,5 +106,6 @@ export {
   create,
   show,
   edit,
-  update
+  update,
+  deletePost as delete
 }
