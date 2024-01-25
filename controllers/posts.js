@@ -112,7 +112,25 @@ function likes(req, res){
 
 }
 
-
+function addComment(req, res) {
+  Post.findById(req.params.postId)
+  .then(post => {
+    req.body.author = req.user.profile._id
+    post.comments.push(req.body)
+    post.save()
+    .then(()=> {
+      res.redirect(`/posts/${post._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect(`/posts`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/posts`)
+  })
+}
 
 
 export {
@@ -124,5 +142,6 @@ export {
   update,
   deletePost as delete,
   dislikes,
-  likes
+  likes,
+  addComment
 }
