@@ -13,6 +13,8 @@ router.get('/:postId', postsCtrl.show)
 router.get('/:postId/edit', isLoggedIn, postsCtrl.edit)
 // POST localhost:3000/posts
 router.post('/', isLoggedIn, postsCtrl.create)
+// POST localhost:3000/posts/:postId/comments
+router.get('/:postId/comments/:commentId/edit', isLoggedIn, postsCtrl.editComment)
 // PUT localhost:3000/posts/:postId/
 router.put('/:postId', isLoggedIn, postsCtrl.update)
 // DELETE localhost:3000/posts/:postId/
