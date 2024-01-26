@@ -1,4 +1,4 @@
-![Alt text](image.png)
+![Alt text](image-1.png)
 
 # Posts for the People
 ## Welcome to Posts for the People! This Node.js Express application allows users to share and interact with posts, fostering a community where people can express their thoughts and opinions.
@@ -7,9 +7,10 @@
 ## [Posts-For-The-People](https://posts-unit-2-project.fly.dev)
 
 # Icebox items 
-## Create the ability to be able to go to a page and see a list of all the profiles made on the site and see every user who has created an account
+## Create the ability to go to a page and view a list of all profiles on the site, including every user who has created an account.
 ## Have a detailed profile page
 ## The abilty to delete anything the user has made from the profile page
+## Like and dislike tracker
 
 ## Project Planning Materials 
 ## [Trello](https://trello.com/b/tpo4sLcq/note-pad-sei-unit-2-project)
