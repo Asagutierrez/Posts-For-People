@@ -13,8 +13,6 @@ const commentSchema = new Schema({
 const postSchema = new Schema({
   name: String,
   content: String,
-  likes: [{type: Schema.Types.ObjectId, ref: 'Profile'}],
-  dislikes: [{type: Schema.Types.ObjectId, ref: 'Profile'}],
   owner: {type: Schema.Types.ObjectId, ref: 'Profile'},
   comments: [commentSchema]
 },{
