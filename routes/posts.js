@@ -3,27 +3,16 @@ import * as postsCtrl from '../controllers/posts.js'
 import { isLoggedIn } from '../middleware/middleware.js'
 const router = Router()
 
-// GET localhost:3000/posts
 router.get('/', postsCtrl.index)
-// GET localhost:3000/posts
 router.get('/new', isLoggedIn, postsCtrl.new)
-// GET localhost:3000/posts
 router.get('/:postId', postsCtrl.show)
-// GET localhost:3000/posts/:postId/edit
 router.get('/:postId/edit', isLoggedIn, postsCtrl.edit)
-// POST localhost:3000/posts
 router.post('/', isLoggedIn, postsCtrl.create)
-// POST localhost:3000/posts/:postId/comments
 router.get('/:postId/comments/:commentId/edit', isLoggedIn, postsCtrl.editComment)
-// PUT localhost:3000/posts/:postId/
 router.put('/:postId', isLoggedIn, postsCtrl.update)
-// DELETE localhost:3000/posts/:postId/
 router.delete('/:postId', isLoggedIn, postsCtrl.delete)
-// PUT localhost:3000/posts/:postId/
 router.put('/:postId/comments/:commentId', isLoggedIn, postsCtrl.updateComment)
-// POST localhost:3000/posts/:postId/comments
 router.post('/:postId/comments', isLoggedIn, postsCtrl.addComment)
-// DELETE localhost:3000/posts/:postId/comments/:commentId
 router.delete('/:postId/comments/:commentId', isLoggedIn, postsCtrl.deleteComment)
 
 export {
