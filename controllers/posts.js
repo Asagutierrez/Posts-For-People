@@ -2,7 +2,6 @@ import { Post } from '../models/post.js'
 
 
 function create(req, res) {
-  console.log('create')
   req.body.owner = req.user.profile._id
   Post.create(req.body)
   .then(post => {
@@ -102,30 +101,6 @@ function deletePost(req, res) {
     res.redirect(`/posts`)
   })
 }
- // if req.user.profile._id doesnt exist in dislikes array
-      // push the current logged in user's id to the dislikes array
-    // if post.owner exists in dislikes array 
-      // redirect back to the post
-async function dislikes(req,res) {
-  try { 
-    const post = await Post.findById(req.params.postId)
-    const dislikes_user = post.dislikes || []
-    if (!dislikes_user.includes(req.user.profile._id)) {
-      dislikes_user.push(req.user.profile._id)
-      post.dislikes = dislikes_user
-      await post.save()
-  } res.json(dislikes_user) 
-} catch (err) {
-  console.error(err)
-  res.redirect('/posts')
-  }
-}
-
-async function likes(req, res) {
-
-}
-
-
 
 function addComment(req, res) {
   Post.findById(req.params.postId)
@@ -191,6 +166,30 @@ function updateComment(req,res) {
   })
 }
 
+function deleteComment(req,res) {
+  Post.findById(req.params.postId)
+  .then(post => {
+    const comment = post.comments.id(req.params.commentId)
+    if (comment.author.equals(req.user.profile._id)) {
+      post.comments.remove(comment)
+      post.save()
+      .then(() => {
+        res.redirect(`/posts/${post._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/posts')
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/posts')
+  })
+}
+
 export {
   index,
   newPost as new,
@@ -199,9 +198,8 @@ export {
   edit,
   update,
   deletePost as delete,
-  dislikes,
-  likes,
   addComment,
   editComment,
-  updateComment
+  updateComment,
+  deleteComment
 }

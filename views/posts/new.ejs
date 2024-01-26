@@ -1,12 +1,12 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="/stylesheets/new.css">
 <%- include('../partials/nav') %>
 <h1><%= title %></h1>
 <% if (user) { %>
   <h2>Write a post!</h2>
   <form action="/posts" method="POST">
     <label> 
-      Post:
+      Post
       <input type="text" name="name" autocomplete="off">
     </label>
     <button type="submit">Add a post</button>

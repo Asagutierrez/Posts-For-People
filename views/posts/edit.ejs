@@ -1,8 +1,9 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/edit.css">
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>Edit the Post</h1>
+  <h1>Edit Post</h1>
   <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
     <label>
       Name: 
@@ -13,7 +14,7 @@
         autocomplete="off"
       >
     </label>
-    <button type="submit">Edit the Post</button>
+    <button type="submit">Edit Post</button>
   </form>
 </section>
 

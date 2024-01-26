@@ -1,0 +1,46 @@
+body {
+  text-align: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+section {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+}
+
+button {
+  margin-top: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+li {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+p {
+  font-size: 28px;
+}
+
+
+button {
+  padding: 10px;
+  font-size: 18px;
+  background-color: #3b4146;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}

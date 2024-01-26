@@ -1,0 +1,21 @@
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  width: 300px; 
+  text-align: left;
+}
+
+button {
+  padding: 10px;
+  font-size: 18px;
+  background-color: #3b4146;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
