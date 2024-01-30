@@ -1,4 +1,4 @@
-![Alt text](image-1.png)
+![Alt text](image.png)
 
 # Posts for the People
 ## Welcome to Posts for the People! This Node.js Express application allows users to share and interact with posts, fostering a community where people can express their thoughts and opinions.
