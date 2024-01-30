@@ -83,6 +83,7 @@ nav > a {
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .btn, button {
@@ -108,7 +109,7 @@ nav > a {
 .edit-btn {
   font-size: 18px;
   border: none;
-  background-color: rgb(71, 61, 61);
+  background-color: #3b4146;
 }
 
 button {
